@@ -1,0 +1,11 @@
+# This is the known bad config file.
+# gpgcheck being disabled should raise a failiure
+# baseurl, gpgkey, metalink and mirrorlist should fail as they are not https urls.
+[code]
+name=Visual Studio Code
+baseurl=http://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=0
+gpgkey=http://packages.microsoft.com/keys/microsoft.asc
+metalink=http://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&arch=$basearch
+mirrorlist=http://mirrors.fedoraproject.org
