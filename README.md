@@ -35,6 +35,21 @@ Running against an [insecure config file](/samples/yumrepo/basic-single-repo-bro
 
     5 tests, 0 passed, 0 warnings, 5 failures
 
+## GDSWay Dockerfile
+
+The [GDSWay Dockerfile guidance](https://gds-way.cloudapps.digital/manuals/programming-languages/docker.html)
+has some guidelines for how to write your `Dockerfile`. The rego
+policies in [/gdsway-docker/](/gdsway-docker/) provide a way to ensure
+you are in compliance with them. It is currently limited to validating the "Using
+tags and digests in FROM instructions" advice.
+
+    conftest test -i Dockerfile s--update github.com/deanwilson/opa-policies.git//gdsway-docker samples/Dockerfile-multistage-nosha
+
+    FAIL - samples/Dockerfile-multistage-nosha - FROM commands should use a sha256 hash, not a label aequitas/http-api-resource
+    FAIL - samples/Dockerfile-multistage-nosha - FROM commands should use a sha256 hash, not a label python:3.7-alpine
+
+    2 tests, 0 passed, 0 warnings, 2 failures
+
 ### Author
 
  * [Dean Wilson](https://www.unixdaemon.net)
